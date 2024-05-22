@@ -10,11 +10,7 @@ public:
     const char* getType() const;
     Object* clone() const;
 
-    void* operator new(usize size) {
-        return vheap::alloc(size);
-    }
+    void* operator new(usize size);
 
-    void operator delete(void* ptr) {
-        vheap::free((usize)ptr, sizeof(Object));
-    }
+    void operator delete(void* ptr);
 };

@@ -1,7 +1,7 @@
 #pragma once
 
 #include <oop.hh>
-#include <oop/dev.hh>
+#include <dev.hh>
 
 namespace pci {
     class Device : public BaseDevice { public:

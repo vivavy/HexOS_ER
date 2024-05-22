@@ -11,7 +11,7 @@ void vheap::init() {
     }
 }
 
-void* vheap::alloc(Size size) {
+void* vheap::alloc(usize size) {
     // find free area of size
     U32 start = 0;
     u8 bits = 0;
@@ -37,7 +37,7 @@ void* vheap::alloc(Size size) {
     return nullptr;
 }
 
-void vheap::free(Pointer ptr, Size size) {
+void vheap::free(Size ptr, Size size) {
     // calculate position in buffer
     U32 start_bytes = (u32)ptr.raw() / 8;
     U32 start_bit = (u32)ptr.raw() % 8;

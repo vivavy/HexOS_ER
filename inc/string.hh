@@ -1,6 +1,6 @@
 #pragma once
 
-#include "object.hh"
+#include <object.hh>
 #include <vheap.hh>
 #include <utils.hh>
 
@@ -30,11 +30,11 @@ public:
         vheap::free((u32)data, length + 1);
     }
 
-    const char* getType() const override {
+    const char* getType() const {
         return "String";
     }
 
-    Object* clone() const override {
+    Object* clone() const {
         return new String(*this);
     }
 

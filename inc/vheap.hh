@@ -1,6 +1,6 @@
 #pragma once
 
-#include <oop.hh>
+#include "oop.hh"
 
 namespace vheap {
     char* buffer;
@@ -8,6 +8,6 @@ namespace vheap {
     char* bitmap;
 
     void init();
-    void* alloc(Size size);
-    void free(Pointer ptr, Size size);
+    void* alloc(usize size);
+    void free(void *ptr, usize size);
 }

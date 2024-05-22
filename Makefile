@@ -1,10 +1,14 @@
+CLEAR := ${CLEAR}
 CXXFLAGS := ${CXXFLAGS}
 CXXFLAGS += -m32 -nostdlib -fno-builtin -fno-stack-protector -fno-exceptions -fno-rtti -g -O0 -std=c++20 -Iinc
 LDFLAGS := ${LDFLAGS}
 LDFLAGS += -m elf_i386 -Tlinker.ld -nostdlib
 
 
-all: clean run
+all: clear clean run
+
+clear:
+	if [ ${CLEAR} -eq 1 ]; then clear;fi
 
 run: build
 	qemu-system-i386 \
@@ -28,12 +32,12 @@ build_asm:
 	i686-elf-as -o boot.o asm/boot.S
 
 build_cc:
-	g++ -c -o main.o src/main.cc ${CXXFLAGS}
-	g++ -c -o vheap.o src/vheap.cc ${CXXFLAGS}
-	g++ -c -o oop.o src/oop/oop.cc ${CXXFLAGS}
-	g++ -c -o object.o src/oop/object.cc ${CXXFLAGS}
-	g++ -c -o primitives.o src/oop/primitives.cc ${CXXFLAGS}
-	g++ -c -o string.o src/oop/list.cc ${CXXFLAGS}
+	g++ -c -o main.o src/main.cpp ${CXXFLAGS}
+	g++ -c -o vheap.o src/vheap.cpp ${CXXFLAGS}
+	g++ -c -o oop.o src/oop/oop.cpp ${CXXFLAGS}
+	g++ -c -o object.o src/oop/object.cpp ${CXXFLAGS}
+	g++ -c -o primitives.o src/oop/primitives.cpp ${CXXFLAGS}
+	g++ -c -o string.o src/oop/list.cpp ${CXXFLAGS}
 
 build: build_asm build_cc
 	i686-elf-ld -o kernel.elf ${LDFLAGS} *o

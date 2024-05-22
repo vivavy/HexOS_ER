@@ -1,6 +1,6 @@
 #pragma once
 
-#include "object.hh"
+#include <object.hh>
 #include <types.hh>
 
 template <typename T>
@@ -8,7 +8,7 @@ class PrimitiveClass : public Object {
 private:
     T value;
 public:
-    PrimitiveClass(T val = 0);
+    PrimitiveClass(T val);
     
     const char* getType() const;
     
@@ -62,23 +62,3 @@ using Usize = PrimitiveClass<usize>;
 using Pointer = PrimitiveClass<usize>;
 
 using Size = Usize;
-
-/*
-PRIMITIVE_CLASS(Int, int);
-PRIMITIVE_CLASS_NO_INT(Float, double);
-PRIMITIVE_CLASS_NO_INT(Half, float);
-PRIMITIVE_CLASS(Bool, bool);
-PRIMITIVE_CLASS(Char, char);
-PRIMITIVE_CLASS(U8, u8);
-PRIMITIVE_CLASS(U16, u16);
-PRIMITIVE_CLASS(U32, u32);
-PRIMITIVE_CLASS(U64, u64);
-PRIMITIVE_CLASS(I8, i8);
-PRIMITIVE_CLASS(I16, i16);
-PRIMITIVE_CLASS(I32, i32);
-PRIMITIVE_CLASS(I64, i64);
-PRIMITIVE_CLASS(Usize, usize);
-PRIMITIVE_CLASS(Pointer, usize);
-
-using Size = Usize;
-*/

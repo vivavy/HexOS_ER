@@ -4,9 +4,6 @@ template <typename T>
 PrimitiveClass<T>::PrimitiveClass(T val) : value(val) {}
 
 template <typename T>
-PrimitiveClass<T>::PrimitiveClass(const PrimitiveClass& other) : value(other.value) {}
-
-template <typename T>
 const char* PrimitiveClass<T>::getType() const {
     return "#name";
 }

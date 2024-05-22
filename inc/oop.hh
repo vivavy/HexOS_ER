@@ -1,6 +1,6 @@
 #pragma once
 
-#include <oop/object.hh>
-#include <oop/string.hh>
-#include <oop/list.hh>
-#include <oop/primitives.hh>
+#include <object.hh>
+#include <string.hh>
+#include <list.hh>
+#include "primitives.hh"
