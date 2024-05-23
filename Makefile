@@ -13,5 +13,6 @@ run:
 		-vga cirrus \
 		-smbios type=0,vendor="HexBox",uefi=off \
 		-D qemu.log \
+		-d all \
 		-cpu pentium2 \
 		-serial stdio

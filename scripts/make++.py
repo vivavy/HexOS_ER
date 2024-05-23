@@ -13,7 +13,8 @@ CXXFLAGS = \
 	" -std=c++20" \
 	" -Iinc" \
 	" -fno-use-cxa-atexit" \
-    " -Xassembler --32"
+    " -Xassembler --32" \
+    " -fexec-charset=ASCII"
 
 LOG = "/tmp/hexos-build-output.txt"
 
