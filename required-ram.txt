@@ -1,2 +1,0 @@
-now:
-    for kernel you need 5 MiBs of RAM
