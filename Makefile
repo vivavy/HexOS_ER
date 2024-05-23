@@ -1,9 +1,6 @@
 all: makepp
 
-makepp:
-	python3 scripts/make++.py
-
-run: build
+run:
 	qemu-system-i386 \
 		-accel kvm \
 		-cdrom hexos.iso \
@@ -14,10 +11,7 @@ run: build
 		-usbdevice mouse \
 		-display gtk,gl=on,window-close=on \
 		-vga cirrus \
-		-smbios type=0,vendor="HexBox",uefi=off
-		-netdev bridge,id=n1 -device virtio-net,netdev=n1 \
-		-pidfile qemu_pid.txt \
+		-smbios type=0,vendor="HexBox",uefi=off \
 		-D qemu.log \
-		-enable-kvm \
-		-cpu pentiumpro \
+		-cpu pentium2 \
 		-serial stdio

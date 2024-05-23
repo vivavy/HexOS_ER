@@ -196,7 +196,7 @@ module.target = "build/boot.o"
 with Timer(f"Building {module.name}") as t:
     module.print_build()
     os.system(f"i686-elf-as --32 -o build/boot.o asm/boot.S 2> {LOG}")
-    t.error = checkError()
+    t.error = checkError(lambda x: x)
 
 cpp_modules = []
 
@@ -236,7 +236,7 @@ with Timer("Linking") as t:
         Name(str(len(cpp_modules) + 1)),
         Word("modules")
     )
-    print(*[m.target for m in cpp_modules])
+    # print(*[m.target for m in cpp_modules])
     os.system(f"i686-elf-ld -o build/kernel.elf -T linker.ld {' '.join(m.target for m in cpp_modules)} 2> {LOG}")
     t.error = checkError(full_ld_check)
 
@@ -249,9 +249,8 @@ with Timer("Creating ISO image") as t:
     os.system(f"grub-mkrescue -o hexos.iso build/iso 2> {LOG}")
     t.error = checkError()
 
-# print(Word("ISO image stored in \"") + Name("hexos.iso") + Word("\""))
-# os.system("rm -rf build/iso")
-# os.system("rm -rf build/*.o build/*.elf")
+print(Word("ISO image stored in \"") + Name("hexos.iso") + Word("\""))
+os.system("rm -rf build")
 print()
 print(Word("Build successful, took"), Name(str(round(elapsed, 2))), Word("seconds"))
 print()
