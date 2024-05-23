@@ -6,6 +6,12 @@
 #include <types.h>
 
 template <typename T>
+List<T>::List()
+    : capacity(0), size(0) {
+    data = static_cast<T*>(vheap::alloc(capacity * sizeof(T)));
+}
+
+template <typename T>
 void List<T>::resize(usize newCapacity) {
     T* newData = static_cast<T*>(vheap::alloc(newCapacity * sizeof(T)));
     utils::memory::copy(newData, data, size * sizeof(T));

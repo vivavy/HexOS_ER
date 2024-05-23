@@ -2,4 +2,4 @@
 
 #include <version.h>
 
-const char *VERSION = "0.9.3-rev27";
+const char *VERSION = "0.10.1-rev5";
