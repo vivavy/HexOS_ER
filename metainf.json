@@ -1,0 +1,8 @@
+{
+    "version": "0.0.3-alpha",
+    "name": "HexOS",
+    "dist-name": "Julia",
+    "arch": "i686",
+    "min_cpu": "Pentium Pro",
+    "min_mem": "16 MiB"
+}

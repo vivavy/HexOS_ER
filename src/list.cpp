@@ -1,5 +1,9 @@
-#include <list.hh>
-#include <oop.hh>
+// List : Linked list implementation : 0.2.9-rev3
+
+#include <list.h>
+#include <vheap.h>
+#include <utils.h>
+#include <types.h>
 
 template <typename T>
 void List<T>::resize(usize newCapacity) {
@@ -34,7 +38,7 @@ const char* List<T>::getType() const {
 }
 
 template <typename T>
-Object* List<T>::clone() const {
+List<T>* List<T>::clone() const {
     return new List(*this);
 }
 
@@ -79,11 +83,11 @@ List<T>& List<T>::operator=(const List& other) {
 }
 
 template <typename T>
-Usize List<T>::getSize() const {
+usize List<T>::getSize() const {
     return size;
 }
 
 template <typename T>
-Usize List<T>::getCapacity() const {
+usize List<T>::getCapacity() const {
     return capacity;
 }
